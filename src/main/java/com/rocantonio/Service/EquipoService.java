@@ -27,16 +27,11 @@ public class EquipoService {
 
 
     public void testEquipos(){
-        Equipo equipo1 = new Equipo();
-        equipo1.setLocalidad("Barcelona");
-        equipo1.setFechaCreacion( new Date(2007, 12, 3));
-        equipo1.setNombre("FCB");
-        equipoRepository.save(equipo1);
 
-        Jugador jugador = jugadorRepository.findByNombreContaining("Roc").get(0);
 
-        jugador.setEquipo(equipo1);
-        jugadorRepository.save(jugador);
+//        Jugador jugador = jugadorRepository.findByNombreContaining("Roc").get(0);
+//        jugador.setEquipo(equipo1);
+//        jugadorRepository.save(jugador);
 //        Set<Jugador> jugadores1 = new HashSet<>(jugadorRepository.findByNombreContaining("Roc"));
 
 //        Equipo equipo1 = new Equipo(

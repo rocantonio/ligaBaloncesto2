@@ -1,6 +1,7 @@
 package com.rocantonio.Model;
 
 import javax.persistence.*;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.HashSet;
 import java.util.Set;
@@ -19,9 +20,17 @@ public class Equipo {
     @OneToMany(mappedBy = "equipo")
     private Set<Jugador> jugadores = new HashSet<>();
 
+    @ManyToMany
+    private Set<Temporada> temporadas = new HashSet<>();
+
     private String nombre;
 
     private String localidad;
+
+    public Set<Temporada> getTemporadas() {
+        return temporadas;
+    }
+
 
     private Date fechaCreacion;
 
@@ -65,20 +74,25 @@ public class Equipo {
         this.localidad = localidad;
     }
 
+    public void setTemporadas(Set<Temporada> temporadas) {
+        this.temporadas = temporadas;
+    }
+
     public Equipo(){};
 
-    public Equipo(String nombre, String localidad, Date fechaCreacion, Set<Jugador> jugadores) {
-        this.jugadores = jugadores;
+    public Equipo(String nombre, String localidad, Date fechaCreacion) {
         this.nombre = nombre;
         this.localidad = localidad;
         this.fechaCreacion = fechaCreacion;
     }
+
 
     @Override
     public String toString() {
         return "Equipo{" +
                 "id=" + id +
                 ", jugadores=" + jugadores +
+                ", temporadas=" + temporadas +
                 ", nombre='" + nombre + '\'' +
                 ", localidad='" + localidad + '\'' +
                 ", fechaCreacion=" + fechaCreacion +
